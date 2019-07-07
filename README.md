@@ -3,4 +3,4 @@
     event.html -- 事件捕获、自定义事件
     proto.html -- 原型链
     oop.html -- 面向对象、继承等
-    ajax.html -- 通信类
+    ajax.html jsonp.js -- 通信类ajax、跨域、jsonp等
