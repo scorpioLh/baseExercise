@@ -6,3 +6,4 @@
     ajax.html jsonp.js -- 通信类ajax、跨域、jsonp等
     sort.html -- 排序算法
     stack.html -- 栈
+    queue.html -- 队列
