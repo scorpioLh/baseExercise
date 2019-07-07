@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>栈</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    // 对于一个栈，我们需要实现添加、删除元素、获取栈顶元素、已经是否为空，栈的长度、清除元素等几个基本操作。下面是基本定义。
+    function Stack() {
+      this.items = [];
+    }
+    Stack.prototype = {
+      constructor: Stack,
+      push: function (element) {
+        this.items.push(element);
+      },
+      pop: function () {
+        return this.items.pop();
+      },
+      peek: function () {
+        return this.items[this.items.length - 1];
+      },
+      isEmpty: function () {
+        return this.items.length == 0;
+      },
+      clear: function () {
+        this.items = [];
+      },
+      size: function () {
+        return this.items.length;
+      },
+      print: function () {
+        console.log(this.items.toString());
+      }
+    }
+
+    // 栈的基本操作
+    var stack = new Stack();
+    console.log(stack.isEmpty()); //true
+    stack.push(5);
+    stack.push(8);
+    console.log(stack.peek()); //8
+    stack.push(11);
+    console.log(stack.size()); //3
+    console.log(stack.isEmpty());
+    stack.push(15);
+    stack.pop();
+    stack.pop();
+    console.log(stack.size()); //2
+    stack.print(); //5,8
+
+    // 通过栈实现对正整数的二进制转换
+    function divideBy2(decNumber) {
+      var decStack = new Stack();
+      var rem;
+      var decString = '';
+      while (decNumber > 0) {
+        rem = decNumber % 2;
+        decStack.push(rem);
+        decNumber = Math.floor(decNumber / 2);
+      }
+      while (!decStack.isEmpty()) {
+        decString += decStack.pop().toString();
+      }
+      return decString;
+    }
+    console.log(divideBy2(10)); //1010
+
+  </script>
+</body>
+
+</html>
