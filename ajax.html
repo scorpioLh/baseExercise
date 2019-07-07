@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>通信类</title>
+</head>
+<body>
+  <script type="text/javascript">
+    /**
+     * 利用hash跨域通信
+     * 场景是当前页面，A通过iframe或frame嵌入了跨域的页面B
+     */
+    // A中伪代码如下：
+    var B = document.getElementsByTagName('iframe')
+    B.src = B.src + '#' + 'data'
+    // 在B中的伪代码如下
+    window.onhashchange = function () {
+      var data = window.location.hash
+    }
+
+    /**
+     * 利用postMessage跨域通信
+     */
+    // 窗口A（http://A.com）向跨域窗口B(http://B.com)发送信息
+    Bwindow.postMessage('data', 'http://B.com') // Bwindow 为 B 窗口下的window对象
+    // 在窗口B中监听
+    window.addEventListener('message', function (event) {
+      console.log(event.origin) // http:// A.com
+      console.log(event.source) // Awindow
+      console.log(event.data) // data
+    }, false)
+
+    /** 
+     * Websocket实现跨域通信
+     */
+    var ws = new WebSocket('wss://echo.websocket.org')
+    ws.onopen = function (evt) {
+      console.log('Connection open ...')
+      ws.send('Hello WebSocket!')
+    }
+    ws.onmessage = function (evt) {
+      console.log('Received Message:' + evt.data)
+      ws.close()
+    }
+    ws.onclose = function (evt) {
+      console.log('Connection closed')
+    }
+
+    /** 
+     * CORS(跨域通信还需添加配置)
+     */
+    fetch('/some/url', {
+      method: 'get',
+    }).then(function (res) {
+
+    }).catch(function (err) {
+
+    })
+  </script>
+</body>
+</html>
