@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>错误监控</title>
+</head>
+<body>
+  <script type="text/javascript">
+    window.addEventListener('error', function(e) {
+      console.log('捕获', e)
+    }, true) // 此处必须为true，捕获阶段
+  </script>
+  <!-- 模拟加载一个错误的资源 -->
+  <script src="//baidu.com/test.js" charset="utf-8"></script>
+
+  <!-- 使用Image方式上报错误 -->
+  <script type="text/javascript">
+    (new Image()).src = 'http://baidu.com/testjk?r=test'
+  </script>
+</body>
+</html>
