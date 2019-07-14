@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>构造函数测试</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 原型
+    function MathHandle(x, y) {
+      this.x = x
+      this.y = y
+    }
+    MathHandle.prototype.add = function() {
+      return this.x + this.y
+    }
+    var m = new MathHandle(1, 2)
+    console.log(m.add())
+
+    // class
+    class MathHandle2 {
+      constructor(x, y) {
+        this.x = x
+        this.y = y
+      }
+      add () {
+        return this.x + this.y
+      }
+    }
+    const m2 = new MathHandle2(1, 2)
+    console.log(m2.add())
+    
+    // class实际上是语法糖
+    console.log(typeof(MathHandle2)) // function
+    console.log(MathHandle2 === MathHandle2.prototype.constructor) // true
+    console.log(m2.__proto__ === MathHandle2.prototype) // true
+  </script>
+</body>
+</html>
