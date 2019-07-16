@@ -34,6 +34,28 @@
     console.log(typeof(MathHandle2)) // function
     console.log(MathHandle2 === MathHandle2.prototype.constructor) // true
     console.log(m2.__proto__ === MathHandle2.prototype) // true
+
+    // 继承
+    class Animal {
+      constructor(name) {
+        this.name = name
+      }
+      eat() {
+        console.log(`${this.name} eat`)
+      }
+    }
+
+    class Dog extends Animal {
+      constructor(name) {
+        super(name)
+      }
+      say () {
+        console.log(`${this.name} say`)
+      }
+    }
+    const dog = new Dog('哈士奇')
+    dog.say()
+    dog.eat()
   </script>
 </body>
 </html>
