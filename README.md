@@ -10,3 +10,4 @@
     process.html -- js运行机制（异步相关）
     error.html -- 前端错误捕获、上报练习
     es6 -- es6语法练习
+    vdom -- 虚拟dom练习
