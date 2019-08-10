@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var obj = {
+      name: 'zhangsan',
+      age: 20,
+      getAddress: function () {
+        alert('beijing')
+      }
+    }
+    
+    // 无with方式
+    function fn () {
+      alert(obj.name)
+      alert(obj.age)
+      obj.getAddress()
+    }
+    fn()
+
+    // 带with方式
+    function fn1 () {
+      with(obj) {
+        alert(name)
+        alert(age)
+        getAddress()
+      }
+    }
+    fn1()
+  </script>
+</body>
+</html>

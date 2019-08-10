@@ -11,3 +11,4 @@
     error.html -- 前端错误捕获、上报练习
     es6 -- es6语法练习
     vdom -- 虚拟dom练习
+    vue -- vue相关练习
