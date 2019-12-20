@@ -9,27 +9,27 @@
     /** 题目1
      * console.log(2)最后执行，因为他是异步的
      */
-    // console.log(1)
-    // setTimeout(function () {
-    //   console.log(2)
-    // }, 0)
-    // console.log(3)
+    console.log(1)
+    setTimeout(function () {
+      console.log(2)
+    }, 0)
+    console.log(3)
 
     /** 题目2
      * 只执行console.log('A')，因为while(true) {}执行不会结束
      */
-    // console.log('A')
-    // while(true) {}
-    // console.log('B')
+    console.log('A')
+    while(true) {}
+    console.log('B')
 
     /** 题目3
      * 因为while执行不结束，所以异步的console.log(B)也不会执行
      */
-    // console.log('A')
-    // setTimeout(function () {
-    //   console.log('B')
-    // }, 0)
-    // while(1) {}
+    console.log('A')
+    setTimeout(function () {
+      console.log('B')
+    }, 0)
+    while(1) {}
 
     /** 题目4
      * setTimeout是到了时间才会把方法语句放入异步队列的过程中

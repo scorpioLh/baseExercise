@@ -27,12 +27,13 @@
     <article class="child"></article>
   </section>
 
-  <!-- BFC元素内垂直方向边距重叠问题 -->
+  <p>BFC元素内垂直方向边距重叠问题</p>
   <section id="margin">
     <style>
       #margin {
         background: pink;
         overflow: hidden;
+        margin-bottom: 20px;
       }
       #margin>p {
         margin: 5px auto 25px;
@@ -47,15 +48,16 @@
     <p>3</p>
   </section>
 
-  <!-- BFC不与float重叠 -->
+  <p>BFC不与float重叠</p>
   <section id="layout">
     <style>
       #layout {
         background: red;
+        margin-bottom: 20px;
       }
       #layout .left {
         float: left;
-        width: 100px;
+        width: 200px;
         height: 100px;
         background: pink;
       }
@@ -70,14 +72,13 @@
     <div class="right"></div>
   </section>
 
-  <!-- BFC子元素即使是float也会参与高度计算 -->
+  <p>BFC子元素即使是float也会参与高度计算</p>
   <section id="float">
     <style>
       #float {
         background: red;
         /* 清除浮动作用 */
         overflow: auto;
-        /* float: left; */
       }
       #float .float {
         float: left;
